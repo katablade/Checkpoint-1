@@ -1,13 +1,20 @@
 let pets = [
-    { name: "Max", type: "dog", bornOn: 2018 },
-    { name: "Angel", type: "cat", bornOn: 2015 },
-    { name: "Jasper", type: "dog", bornOn: 2016 }
-  ];
-  
-  const getAge= pet => new Date().getFullYear() - pet.bornOn;
-  pets.forEach((pet)=>(console.log(pet)));
+  { name: "Max", type: "dog", bornOn: 2018 },
+  { name: "Angel", type: "cat", bornOn: 2015 },
+  { name: "Jasper", type: "dog", bornOn: 2016 }
+];
 
-  pets.forEach((pet)=>{if(pet.type===`dog`){console.log(pet)}})
+const getAge= pet => new Date().getFullYear() - pet.bornOn
 
-  pets.forEach((jasper)=>{if(jasper.name===`Jasper`){console.log(`Jasper is ${getAge(jasper)} years old`)}})
-  
+let petsWithAge = [];
+pets.forEach((pet) => {
+    pet.age = getAge(pet)  
+    petsWithAge.push(pet)
+})
+console.log(petsWithAge);
+
+let dogs = pets.filter((pet) => pet.type===`dog`)
+console.log(dogs);
+
+let jasper = pets.find((pet)=> pet.name===`Jasper`)
+console.log(`Japser is ${jasper.age} years old`)
